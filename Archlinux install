@@ -1,0 +1,37 @@
+ #!/bin/sh      
+echo " ----------- Install git,yaourt,jdk8    ----------- " 
+
+pacman -S git
+
+su - zimy <<EOF
+cd /home/zimy;
+pwd;
+git clone https://aur.archlinux.org/package-query.git;
+git clone https://aur.archlinux.org/yaourt.git;
+cd package-query;
+makepkg -si;
+cd /home/zimy/yaourt;
+makepkg -si;
+cd ..;
+rm -r package-query yaourt
+exit;
+EOF
+
+yaourt -S  jdk8  libnatspec fcitx-sogoupinyin typora numix-icon-theme-git numix-gtk-theme
+
+echo " ----------- Install base pakeage , is not pacman -S openssh   ----------- "
+pacman -S  adobe-source-han-serif-cn-fonts adobe-source-han-sans-cn-fonts wqy-microhei noto-fonts-emoji lightdm lightdm-gtk-greeter xfce4 xfce4-goodies
+pacman -S  gvfs slock bash-completion chromium min libreoffice-fresh-zh-CN thunderbird-i18n-zh-cn p7zip file-roller unrar
+pacman -S  evince mypaint catfish wget remmina freerdp gnome-keyring vlc mpv gvfs-smb sshfs
+pacman -S  fcitx fcitx-im fcitx-configtool alsa-utils 
+
+echo " Please edit  ~/.xprofile   
+  # 系统中文化
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+export LC_CTYPE=en_US.UTF-8
+
+# fcitx 输入法
+export GTK_IM_MODULE=fcitx
+export OT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx              "
