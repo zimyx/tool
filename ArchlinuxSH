@@ -19,7 +19,7 @@ EOF
 
 yaourt -S  jdk8  libnatspec fcitx-sogoupinyin typora numix-icon-theme-git numix-gtk-theme
 
-echo " ----------- Install base pakeage , is not pacman -S openssh   ----------- "
+echo " ----------- Install base pakeage   ----------- "
 pacman -S  adobe-source-han-serif-cn-fonts adobe-source-han-sans-cn-fonts wqy-microhei noto-fonts-emoji lightdm lightdm-gtk-greeter xfce4 xfce4-goodies
 pacman -S  gvfs slock bash-completion chromium min libreoffice-fresh-zh-CN thunderbird-i18n-zh-cn p7zip file-roller unrar
 pacman -S  evince mypaint catfish wget remmina freerdp gnome-keyring vlc mpv gvfs-smb sshfs
